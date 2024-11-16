@@ -25,5 +25,25 @@
 
 # This configuration provides a basic setup. Depending on your specific needs, you might want to add more security measure, configure backups for the database, set up monitoring, etc.
 
+Create account in GCP.
+Install gcloud on your distributer machine (in my case linux ubuntu 24.04)
+Go to APIs & Services and enable it.
+Open to IAM service, choose your account, grant access, Select Role and add Service Account User/Service Networking Admin/Compute Network Admin.
+Run gcloud auth application-default login and allow gcloud credentials access.
+Alternatively you can create service account and create keys for particular service account and download and the save keys.json with information to connect to GCP.
+
+Terraform command:
+terraform init
+terraform plan
+terraform apply
+
+# First, destroy the database instance
+terraform destroy -target google_sql_database_instance.db_instance
+
+# Then destroy the service networking connection
+terraform destroy -target google_service_networking_connection.private_vpc_connection
+
+# Finally, destroy everything else
+terraform destroy
 
 
