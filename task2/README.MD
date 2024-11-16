@@ -1,5 +1,14 @@
 This YAML file is an AWS CloudFormation template designed to set up a network infrastructure with a Virtual Private Cloud (VPC), subnets, an EC2 instance, and an RDS database. Here's a breakdown of each section:
 
+How to deploy:
+Clone infrastructure2.yaml file on your local directory.
+Login into AWS console, open CloudFormation service.
+Click on Create stack and choose "Upload a template file" under Specify template.
+Choose file and uplod infrastructure2.yaml and click Next.
+Provide a stack name and click Next-->Next-->Submit
+You can follow in progress of deploymnets in Resources and Output sections until it's change to CREATE_COMPLETED.
+Verify your deploymnet by SSH into your instance in EC2.
+
 General Information
 AWSTemplateFormatVersion: Specifies the version of the CloudFormation template format being used.
 Description: Provides a brief description of what the template does.
