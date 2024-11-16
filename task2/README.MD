@@ -8,6 +8,8 @@ Choose file and uplod infrastructure2.yaml and click Next.
 Provide a stack name and click Next-->Next-->Submit
 You can follow in progress of deploymnets in Resources and Output sections until it's change to CREATE_COMPLETED.
 Verify your deploymnet by SSH into your instance in EC2.
+You can destroy your Stack by clicking on Delete Stack.
+
 
 General Information
 AWSTemplateFormatVersion: Specifies the version of the CloudFormation template format being used.
