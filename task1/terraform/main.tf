@@ -3,17 +3,17 @@
 
 # Add this at the beginning of your configuration file
 data "google_service_account" "terraform_sa" {
-  account_id = "207132388378-compute@developer.gserviceaccount.com"  # The part before @your-project.iam.gserviceaccount.com
+  account_id = " "  # The part before @your-project.iam.gserviceaccount.com
 }
 
 resource "google_project_iam_member" "service_networking_admin" {
-  project = "terrafom-436819" # set your projectID
+  project = " " # set your projectID
   role    = "roles/servicenetworking.networksAdmin"
   member  = "serviceAccount:${data.google_service_account.terraform_sa.email}"
 }
 
 resource "google_project_iam_member" "compute_network_admin" {
-  project = "terrafom-436819"
+  project = " "
   role    = "roles/compute.networkAdmin"
   member  = "serviceAccount:${data.google_service_account.terraform_sa.email}"
 }
@@ -25,8 +25,8 @@ resource "google_project_iam_member" "compute_network_admin" {
 
 # Configure the Google Cloud provider
 provider "google" {
-  #credentials = file("/home/eav/Code/home-assignments/microsoft/terraform/terrafom-436819-47dc73b32b0a.json")
-  project = "terrafom-436819"
+  #credentials = file("keys.json")
+  project = " "
   region  = "us-central1"
 }
 
@@ -98,7 +98,7 @@ resource "google_service_account" "vm_service_account" {
 
 # Add IAM roles to the service account
 resource "google_project_iam_member" "vm_sa_roles" {
-  project = "terrafom-436819"
+  project = " "
   role    = "roles/compute.instanceAdmin.v1"
   member  = "serviceAccount:${google_service_account.vm_service_account.email}"
 }
@@ -189,7 +189,7 @@ resource "google_project_service" "sql_admin_api" {
 
 # Add Cloud SQL Admin role to service account
 resource "google_project_iam_member" "cloudsql_admin" {
-  project = "terrafom-436819"
+  project = " "
   role    = "roles/cloudsql.admin"
   member  = "serviceAccount:${data.google_service_account.terraform_sa.email}"
 }
@@ -232,7 +232,7 @@ resource "google_sql_database" "database" {
 resource "google_sql_user" "users" {
   name     = "mysql-user"
   instance = google_sql_database_instance.db_instance.name
-  password = "sql123pass"  # Change this to a secure password
+  password = " "  # Change this to a secure password
 }
 
 # Output the public IP address of the VM
